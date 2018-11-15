@@ -6,7 +6,9 @@ package com.platform.common;
 
 public class Constant {
 
-    public static final String BaseUrl = "http://192.168.100.72";
+//    public static final String BaseUrl = "http://192.168.100.72";
+
+    public static final String BaseUrl = "http://myhome.ticp.io:54413";
 
     public static final String Login_Url = "mobileLogin";
 
