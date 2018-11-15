@@ -90,6 +90,7 @@ public class ChatDetailActivity extends BaseActivity {
         messageList = new ArrayList<Map<String, Object>>();
         BaseApplication app = (BaseApplication) getApplication();
         socket = app.getSocket();
+        
         socket.open();
         socket.on("message", new Emitter.Listener() {
             @Override
