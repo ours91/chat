@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/ten">
+
+        <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adapter_user_list_avatar"
+            android:layout_width="@dimen/fifty"
+            android:layout_height="@dimen/fifty"
+            android:scaleType="fitXY"
+            android:src="@drawable/home"
+            app:riv_mutate_background="true"
+            app:riv_oval="true"
+            app:riv_tile_mode="repeat" />
+
+        <LinearLayout
+            android:id="@+id/adapter_user_list_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/twenty"
+            android:layout_toRightOf="@id/adapter_user_list_avatar"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/adapter_user_list_nickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="张三" />
+
+            <TextView
+                android:id="@+id/adapter_user_list_online"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/five"
+                android:text="在线" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one"
+        android:layout_alignParentBottom="true"
+        android:background="@color/silver" />
+
+</RelativeLayout>

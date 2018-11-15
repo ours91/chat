@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:paddingTop="20dp"
+    android:background="@drawable/bgaction"
+    android:gravity="center_vertical" >
+
+    <!--左侧返回按钮-->
+    <LinearLayout
+        android:id="@+id/llLeftGoBack"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="15dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:clickable="false"
+            android:drawableLeft="@drawable/back"
+            android:drawablePadding="5dp"
+            android:focusable="false"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!--右侧按钮-->
+    <LinearLayout
+        android:id="@+id/llRight"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp" >
+
+        <ImageView
+            android:id="@+id/ivRightComplete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:focusable="false"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvRightComplete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <!--标题-->
+    <TextView
+        android:id="@+id/tvCenterTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:layout_toRightOf="@id/llLeftGoBack"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="标题"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+</RelativeLayout>

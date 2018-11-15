@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LimitScroller">
+        <!--显示的条目数量-->
+        <attr name="limit" format="integer" />
+        <!--滚动速度，比如3000，滚动时间会持续3秒钟-->
+        <attr name="durationTime" format="integer" />
+        <!--滚动间隔，比如5000，滚动完成后停留5秒继续滚动-->
+        <attr name="periodTime" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <!-- {@deprecated Use civ_circlebackground_color instead.} -->
+        <attr name="civ_fill_color" format="color" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+</resources>
