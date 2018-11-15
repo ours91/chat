@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +38,7 @@ public class ChatDetailActivity extends BaseActivity {
     private UserDetailMessageAdapter userDetailMessageAdapter;
     private String nickName;
     private String thatUserId;
-    private ImageButton send_button;
+    private ImageButton send_button, add_button;
     private EditText message_input;
     private List<Map<String, Object>> messageList;
     private Map<String, Object> fu;
@@ -57,7 +59,30 @@ public class ChatDetailActivity extends BaseActivity {
     @Override
     protected void init() {
         send_button = $(R.id.send_button);
+        add_button = $(R.id.add_button);
         message_input = $(R.id.message_input);
+        message_input.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (TextUtil.isEmpty(charSequence.toString())) {
+                    add_button.setVisibility(View.VISIBLE);
+                    send_button.setVisibility(View.GONE);
+                } else {
+                    add_button.setVisibility(View.GONE);
+                    send_button.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
         send_button.setOnClickListener(l);
         recyclerView = (RecyclerView) findViewById(R.id.messages);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -66,17 +91,14 @@ public class ChatDetailActivity extends BaseActivity {
         BaseApplication app = (BaseApplication) getApplication();
         socket = app.getSocket();
         socket.open();
-        if (socket.connected()) {
-            MyLog.e("-----*****", "socket在线");
-        } else {
-            MyLog.e("-----", "socket已掉线");
-        }
-//        socket.off("message");
         socket.on("message", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
-                MyLog.w(TAG + "------", args[0].toString());
                 Map<String, Object> m = JsonUtil.toObject(args[0].toString(), Map.class);
+                if (Boolean.parseBoolean(m.get("error").toString())) {
+                    BaseUtils.showToast("对方已离线", context);
+                    return;
+                }
                 if (!fu.get("nickName").equals(m.get("nickName").toString())) {
                     messageList.add(m);
                 }
