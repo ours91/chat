@@ -44,7 +44,7 @@ dependencies {
     api 'com.coolerfall:android-app-daemon:1.2.0'
     //gson
     api 'com.google.code.gson:gson:2.8.0'
-    //jsoup
+    //jsoup(显示富文本框用)
     api group: 'org.jsoup', name: 'jsoup', version: '1.5.2'
     //上拉加载,下拉刷新
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-1'
@@ -58,6 +58,7 @@ dependencies {
     implementation 'com.facebook.fresco:fresco:0.14.1'
     //圆形头像
     implementation 'com.makeramen:roundedimageview:2.2.1'
+    //系统jar
     implementation files('libs/insplatform-core-1.0-SNAPSHOT.jar')
     //bindView
     compile 'com.jakewharton:butterknife:8.6.0'
